@@ -9,7 +9,7 @@ const Navbar = () => {
       <div className="container max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center">
           <a href="#" className="text-2xl font-bold gradient-text">
-            CRM<span className="text-brand-blue">Boost</span>
+            Lumus<span className="text-brand-blue">Labs</span>
           </a>
         </div>
         <nav className="hidden md:flex items-center gap-8">

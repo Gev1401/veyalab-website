@@ -50,7 +50,7 @@ const LeadForm = () => {
                 "Processing..."
               ) : (
                 <span className="flex items-center justify-center gap-2">
-                  Get up to 100 leads! <ArrowRight className="h-4 w-4" />
+                  Get 100 enriched leads <ArrowRight className="h-4 w-4" />
                 </span>
               )}
             </Button>
