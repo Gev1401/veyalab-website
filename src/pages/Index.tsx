@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
 import CaseStudy from "@/components/CaseStudy";
-import ProvenResults from "@/components/ProvenResults";
+import CustomerStories from "@/components/CustomerStories";
 import LeadForm from "@/components/LeadForm";
 import Footer from "@/components/Footer";
 
@@ -16,7 +16,7 @@ const Index = () => {
         <Hero />
         <CaseStudy />
         <HowItWorks />
-        <ProvenResults />
+        <CustomerStories />
         <LeadForm />
       </main>
       <Footer />

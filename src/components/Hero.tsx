@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Database, LineChart, Users } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -26,29 +26,6 @@ const Hero = () => {
                 Get 100 enriched leads <ArrowRight className="h-4 w-4" />
               </a>
             </Button>
-          </div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-          <div className="flex flex-col items-center p-6 bg-white/70 backdrop-blur-sm rounded-lg shadow-lg border border-gray-100">
-            <Database className="h-12 w-12 text-brand-blue mb-4" />
-            <h3 className="text-lg font-semibold">Enriched Data</h3>
-            <p className="text-sm text-center text-gray-500 mt-2">
-              Complete your CRM with missing contact information and company details
-            </p>
-          </div>
-          <div className="flex flex-col items-center p-6 bg-white/70 backdrop-blur-sm rounded-lg shadow-lg border border-gray-100 animate-float">
-            <LineChart className="h-12 w-12 text-brand-purple mb-4" />
-            <h3 className="text-lg font-semibold">Intelligent Insights</h3>
-            <p className="text-sm text-center text-gray-500 mt-2">
-              Get actionable intelligence on your leads' needs and buying signals
-            </p>
-          </div>
-          <div className="flex flex-col items-center p-6 bg-white/70 backdrop-blur-sm rounded-lg shadow-lg border border-gray-100">
-            <Users className="h-12 w-12 text-brand-blue mb-4" />
-            <h3 className="text-lg font-semibold">Qualified Leads</h3>
-            <p className="text-sm text-center text-gray-500 mt-2">
-              Connect with the right decision-makers and increase conversion rates
-            </p>
           </div>
         </div>
       </div>
