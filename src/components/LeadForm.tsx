@@ -1,27 +1,12 @@
 
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { ArrowRight, CheckCircle } from "lucide-react";
 
 const LeadForm = () => {
   const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    message: "",
-  });
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,12 +24,6 @@ const LeadForm = () => {
         ),
       });
       setIsSubmitting(false);
-      setFormData({
-        name: "",
-        email: "",
-        company: "",
-        message: "",
-      });
     }, 1500);
   };
 
@@ -60,44 +39,10 @@ const LeadForm = () => {
           </p>
         </div>
         <div className="mx-auto max-w-md mt-10">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="space-y-3">
-              <Input
-                placeholder="Your Name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="py-6"
-              />
-              <Input
-                placeholder="Work Email"
-                name="email"
-                type="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="py-6"
-              />
-              <Input
-                placeholder="Company"
-                name="company"
-                value={formData.company}
-                onChange={handleChange}
-                required
-                className="py-6"
-              />
-              <Textarea
-                placeholder="Tell us about your needs and ideal customer profile"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                className="min-h-[120px] resize-none"
-              />
-            </div>
+          <form onSubmit={handleSubmit} className="flex flex-col items-center">
             <Button 
               type="submit" 
-              className="w-full text-base shadow-custom py-6" 
+              className="text-base shadow-custom py-6 px-8" 
               size="lg" 
               disabled={isSubmitting}
             >
@@ -109,7 +54,7 @@ const LeadForm = () => {
                 </span>
               )}
             </Button>
-            <p className="text-xs text-center text-gray-500">
+            <p className="text-xs text-center text-gray-500 mt-4">
               By submitting this form, you agree to our privacy policy and terms.
             </p>
           </form>
