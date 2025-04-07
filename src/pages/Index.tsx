@@ -13,8 +13,8 @@ const Index = () => {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <HowItWorks />
         <CaseStudy />
+        <HowItWorks />
         <LeadForm />
       </main>
       <Footer />

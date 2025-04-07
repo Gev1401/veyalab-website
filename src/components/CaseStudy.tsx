@@ -1,6 +1,5 @@
 
 import React from "react";
-import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Clock, Target, BarChart2 } from "lucide-react";
 
@@ -9,9 +8,8 @@ const CaseStudy = () => {
     <section id="case-study" className="w-full py-12 md:py-24">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
-          <Badge className="px-3 py-1 text-sm" variant="secondary">Success Story</Badge>
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Why work with <span className="gradient-text">us</span>
+            Why work <span className="gradient-text">with us</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl">
             Let your sales team focus on closing deals — we'll handle the data heavy lifting
