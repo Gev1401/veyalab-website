@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 
 const LeadForm = () => {
   const { toast } = useToast();
@@ -24,9 +24,6 @@ const LeadForm = () => {
         ),
       });
       setIsSubmitting(false);
-      
-      // Redirect to Calendly
-      window.location.href = "https://calendly.com/george-veyalab/30min";
     }, 1500);
   };
 
@@ -35,7 +32,7 @@ const LeadForm = () => {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Ready to boost your <span className="gradient-text">sales?</span>
+            Ready to boost your <span className="gradient-text">sales pipeline?</span>
           </h2>
           <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
             Get up to 100 leads with our data enrichment service
@@ -48,12 +45,18 @@ const LeadForm = () => {
               className="text-base shadow-custom py-6 px-8" 
               size="lg" 
               disabled={isSubmitting}
-              asChild
             >
-              <a href="https://calendly.com/george-veyalab/30min">
-                {isSubmitting ? "Processing..." : "Get 100 enriched leads"}
-              </a>
+              {isSubmitting ? (
+                "Processing..."
+              ) : (
+                <span className="flex items-center justify-center gap-2">
+                  Get 100 enriched leads <ArrowRight className="h-4 w-4" />
+                </span>
+              )}
             </Button>
+            <p className="text-xs text-center text-gray-500 mt-4">
+              By submitting this form, you agree to our privacy policy and terms.
+            </p>
           </form>
         </div>
       </div>

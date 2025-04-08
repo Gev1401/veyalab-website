@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -9,8 +10,7 @@ const Hero = () => {
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
-              Boost sales conversion <br />
-              <span className="gradient-text">with AI-enriched leads</span>
+              Boost sales conversion <span className="gradient-text">with AI-enriched leads</span>
             </h1>
             <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400 mt-4">
               Let AI handle the lead enrichment — so your sales team can focus on closing deals.
@@ -22,8 +22,8 @@ const Hero = () => {
               className="w-full text-base font-medium shadow-custom" 
               asChild
             >
-              <a href="https://calendly.com/george-veyalab/30min" className="flex items-center justify-center gap-2">
-                Get 100 enriched leads
+              <a href="#contact" className="flex items-center justify-center gap-2">
+                Get 100 enriched leads <ArrowRight className="h-4 w-4" />
               </a>
             </Button>
           </div>
