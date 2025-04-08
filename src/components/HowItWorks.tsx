@@ -35,9 +35,10 @@ const HowItWorks = () => {
             How it <span className="gradient-text">Works</span>
           </h2>
           <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
-            Our simple three-step process transforms your raw CRM data into qualified, actionable leads
+            Set up AI enrichment in minutes — just tell us what parameters define your Ideal Customer Profile, and we'll do the rest.
           </p>
         </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 relative mt-8">
           {steps.map((step, index) => (
             <div
@@ -52,6 +53,13 @@ const HowItWorks = () => {
               <p className="text-gray-500 text-center">{step.description}</p>
             </div>
           ))}
+        </div>
+        
+        <div className="mt-16 text-center">
+          <h3 className="text-2xl font-semibold mb-4">What Can We Enrich?</h3>
+          <p className="max-w-[700px] mx-auto text-gray-500 md:text-lg">
+            If you could find it manually, our AI can do it for you — but way faster.
+          </p>
         </div>
       </div>
     </section>
