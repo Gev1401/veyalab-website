@@ -3,7 +3,7 @@ import { ShieldCheck } from "lucide-react";
 const Footer = () => {
   return <footer className="w-full py-12 border-t bg-white">
       <div className="container px-4 md:px-6">
-        <div className="grid grid-cols-2 gap-50 ">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="space-y-4">
             <h3 className="text-lg font-bold gradient-text">
               Lumus<span className="text-brand-blue ">Labs</span>
