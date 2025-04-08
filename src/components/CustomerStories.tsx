@@ -37,23 +37,23 @@ const CustomerStories = () => {
     },
   ];
 
-  // State to manage the current index of the carousel
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Function to handle next item
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % stories.length); // Loop back to the first item when we reach the end
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % stories.length);
   };
 
-  // Function to handle previous item
   const handlePrevious = () => {
     setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + stories.length) % stories.length // Loop back to the last item when we reach the start
+      (prevIndex) => (prevIndex - 1 + stories.length) % stories.length
     );
   };
 
   return (
-    <section id="customer-stories" className="w-full py-12 md:py-24 bg-gradient-to-br from-brand-blue/5 to-brand-purple/5">
+    <section
+      id="customer-stories"
+      className="w-full py-12 md:py-24 bg-gradient-to-br from-brand-blue/5 to-brand-purple/5"
+    >
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
@@ -69,7 +69,7 @@ const CustomerStories = () => {
             {stories.map((story, index) => (
               <CarouselItem
                 key={index}
-                className={`md:basis-full ${index === currentIndex ? "block" : "hidden"}`} // Only display the current item
+                className={`md:basis-full ${index === currentIndex ? "block" : "hidden"}`}
               >
                 <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-lg rounded-xl overflow-hidden h-full">
                   <CardContent className="p-6 md:p-8">
@@ -87,13 +87,15 @@ const CustomerStories = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
+
+          {/* ✅ Управление стрелками без вложенного button */}
           <div className="flex justify-center gap-4 mt-6">
-            <button onClick={handlePrevious} className="relative static transform-none left-0">
+            <div role="button" onClick={handlePrevious}>
               <CarouselPrevious />
-            </button>
-            <button onClick={handleNext} className="relative static transform-none right-0">
+            </div>
+            <div role="button" onClick={handleNext}>
               <CarouselNext />
-            </button>
+            </div>
           </div>
         </Carousel>
       </div>
