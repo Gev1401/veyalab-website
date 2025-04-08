@@ -5,11 +5,11 @@ import { Clock, Target, BarChart2 } from "lucide-react";
 
 const CaseStudy = () => {
   return (
-    <section id="why-work-with-us" className="w-full py-12 md:py-24">
+    <section id="case-study" className="w-full py-12 md:py-24">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Why work <span className="gradient-text">with us</span>
+            Why work <span className="gradient-text">with VeyaLab</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl">
             Let your sales team focus on closing deals — we'll handle the data heavy lifting
