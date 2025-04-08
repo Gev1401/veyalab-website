@@ -6,7 +6,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="space-y-4">
             <h3 className="text-lg font-bold gradient-text">
-              Lumus<span className="text-brand-blue">Labs</span>
+              Lumus<span className="text-brand-blue ">Labs</span>
             </h3>
             <p className="text-gray-500 max-w-xs">
               Empower your team with enriched CRM data and automated workflows to make right decisions.
@@ -14,17 +14,7 @@ const Footer = () => {
           </div>
           
           <div className="space-y-4">
-            <div className="space y 5">
-              <ShieldCheck className="h-5 w-5 text-brand-blue shrink-0 mt-1" />
-              <div>
-                <h3 className="text-lg font-bold">GDPR Compliance</h3>
-                <p className="text-gray-500 text-sm mt-2">
-                  We take data privacy seriously. All our data enrichment processes are GDPR compliant. 
-                  We only collect and process information in accordance with applicable data protection 
-                  regulations and with proper consent mechanisms in place.
-                </p>
-              </div>
-            </div>
+            
           </div>
         </div>
         <div className="border-t mt-8 pt-8 flex flex-col md:flex-row items-center justify-between">
