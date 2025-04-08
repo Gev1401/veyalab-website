@@ -3,19 +3,19 @@ import { FileUp, Database, UserCheck } from "lucide-react";
 const HowItWorks = () => {
   const steps = [{
     icon: <FileUp className="h-10 w-10 text-brand-blue" />,
-    title: "Submit Your CRM Data",
-    description: "Share your CRM data in CSV along with a description of your Ideal Customer Profile (ICP) and the specific client information you want to enrich.",
-    number: "01"
+    title: "ICP definition",
+    description: "Share your Ideal Customer Profile and the specific client information you want to enrich.",
+    number: "1"
   }, {
     icon: <Database className="h-10 w-10 text-brand-purple" />,
     title: "Data Processing & Enrichment",
     description: "We process and clean your data, enriching it with valuable external insights to improve its accuracy and completeness.",
-    number: "02"
+    number: "2"
   }, {
     icon: <UserCheck className="h-10 w-10 text-brand-blue" />,
     title: "Receive Qualified Leads",
     description: "Receive a refined list of potential leads, complete with accurate and up-to-date information, ready for your sales team to act on.",
-    number: "03"
+    number: "3"
   }];
   return <section id="how-it-works" className="w-full py-12 md:py-24 bg-brand-light/30">
       <div className="container px-4 md:px-6">
