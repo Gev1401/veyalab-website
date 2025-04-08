@@ -1,9 +1,7 @@
 import React from "react";
 import { ShieldCheck } from "lucide-react";
-
 const Footer = () => {
-  return (
-    <footer className="w-full py-12 border-t bg-white">
+  return <footer className="w-full py-12 border-t bg-white">
       <div className="container px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="space-y-4">
@@ -14,33 +12,9 @@ const Footer = () => {
               Empower your team with enriched CRM data and automated workflows to make right decisions.
             </p>
           </div>
+          
           <div className="space-y-4">
-            <h3 className="text-lg font-bold">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="text-gray-500 hover:text-brand-blue transition-colors">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="#how-it-works" className="text-gray-500 hover:text-brand-blue transition-colors">
-                  How It Works
-                </a>
-              </li>
-              <li>
-                <a href="#case-study" className="text-gray-500 hover:text-brand-blue transition-colors">
-                  Case Study
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="text-gray-500 hover:text-brand-blue transition-colors">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div className="space-y-4">
-            <div className="flex items-start gap-2">
+            <div className="space y 5">
               <ShieldCheck className="h-5 w-5 text-brand-blue shrink-0 mt-1" />
               <div>
                 <h3 className="text-lg font-bold">GDPR Compliance</h3>
@@ -67,8 +41,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
