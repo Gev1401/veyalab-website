@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid grid-cols-2 gap-x-20">
           <div className="space-y-4">
             <h3 className="text-lg font-bold gradient-text">
-              Veya<span className="text-brand-blue ">Lab</span>
+              Veya<span className="text-brand-blue">Lab</span>
             </h3>
             <p className="text-gray-500 max-w-xs">
               Empower your team with enriched CRM data and automated workflows to make right decisions.
