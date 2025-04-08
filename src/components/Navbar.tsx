@@ -9,7 +9,7 @@ const Navbar = () => {
       <div className="container max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center">
           <a href="#" className="text-2xl font-bold gradient-text">
-            Lumus<span className="text-brand-blue">Labs</span>
+            Veya<span className="text-brand-blue">Lab</span>
           </a>
         </div>
         <nav className="hidden md:flex items-center gap-8">
@@ -20,14 +20,20 @@ const Navbar = () => {
             How It Works
           </a>
           <a 
-            href="#case-study" 
+            href="#why-work-with-us" 
             className="text-base font-medium text-gray-600 hover:text-brand-blue transition-colors"
           >
-            Case Study
+            Why Work With Us
+          </a>
+          <a 
+            href="#customer-stories" 
+            className="text-base font-medium text-gray-600 hover:text-brand-blue transition-colors"
+          >
+            Customer Stories
           </a>
           <Button asChild>
-            <a href="#contact" className="ml-4 font-medium">
-              Get Started
+            <a href="https://calendly.com/george-veyalab/30min" className="ml-4 font-medium">
+              Get 100 enriched leads
             </a>
           </Button>
         </nav>

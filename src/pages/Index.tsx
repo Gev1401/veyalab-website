@@ -14,8 +14,8 @@ const Index = () => {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <CaseStudy />
         <HowItWorks />
+        <CaseStudy />
         <CustomerStories />
         <LeadForm />
       </main>
