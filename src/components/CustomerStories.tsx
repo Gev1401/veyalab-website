@@ -1,5 +1,4 @@
-
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Rocket, Users, Database } from "lucide-react";
 import {
@@ -38,6 +37,21 @@ const CustomerStories = () => {
     },
   ];
 
+  // State to manage the current index of the carousel
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Function to handle next item
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % stories.length); // Loop back to the first item when we reach the end
+  };
+
+  // Function to handle previous item
+  const handlePrevious = () => {
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + stories.length) % stories.length // Loop back to the last item when we reach the start
+    );
+  };
+
   return (
     <section id="customer-stories" className="w-full py-12 md:py-24 bg-gradient-to-br from-brand-blue/5 to-brand-purple/5">
       <div className="container px-4 md:px-6">
@@ -49,11 +63,14 @@ const CustomerStories = () => {
             Real results from businesses like yours
           </p>
         </div>
-        
+
         <Carousel className="w-full max-w-3xl mx-auto">
           <CarouselContent>
             {stories.map((story, index) => (
-              <CarouselItem key={index} className="md:basis-full">
+              <CarouselItem
+                key={index}
+                className={`md:basis-full ${index === currentIndex ? "block" : "hidden"}`} // Only display the current item
+              >
                 <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-lg rounded-xl overflow-hidden h-full">
                   <CardContent className="p-6 md:p-8">
                     <div className="w-14 h-14 rounded-full bg-brand-light flex items-center justify-center mb-4">
@@ -71,8 +88,12 @@ const CustomerStories = () => {
             ))}
           </CarouselContent>
           <div className="flex justify-center gap-4 mt-6">
-            <CarouselPrevious className="relative static transform-none left-0" />
-            <CarouselNext className="relative static transform-none right-0" />
+            <button onClick={handlePrevious} className="relative static transform-none left-0">
+              <CarouselPrevious />
+            </button>
+            <button onClick={handleNext} className="relative static transform-none right-0">
+              <CarouselNext />
+            </button>
           </div>
         </Carousel>
       </div>
