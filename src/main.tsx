@@ -4,7 +4,9 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 
 const baseName =
-  window.location.hostname === "veyalab.com" ? "/" : "/veyalab-website";
+  process.env.NODE_ENV === "development" || window.location.hostname === "veyalab.com"
+    ? "/" 
+    : "/veyalab-website";
 
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter basename={baseName}>
