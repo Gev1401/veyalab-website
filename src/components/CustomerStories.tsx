@@ -1,17 +1,12 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Rocket, Users, Database } from "lucide-react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { Button } from "@/components/ui/button";
 
 const CustomerStories = () => {
+  const [activeStory, setActiveStory] = useState(0);
+  
   const stories = [
     {
       icon: <Rocket className="h-7 w-7 text-brand-purple" />,
@@ -39,45 +34,13 @@ const CustomerStories = () => {
     },
   ];
 
-  const isMobile = useIsMobile();
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [api, setApi] = useState<any>(null);
+  const handlePrev = () => {
+    setActiveStory((prev) => (prev === 0 ? stories.length - 1 : prev - 1));
+  };
 
-  // Handle next slide with infinite loop
   const handleNext = () => {
-    if (!api) return;
-    api.scrollNext();
+    setActiveStory((prev) => (prev === stories.length - 1 ? 0 : prev + 1));
   };
-
-  // Handle previous slide with infinite loop
-  const handlePrevious = () => {
-    if (!api) return;
-    api.scrollPrev();
-  };
-
-  useEffect(() => {
-    if (!api) return;
-    
-    // Handle infinite carousel logic
-    api.on('select', () => {
-      setCurrentIndex(api.selectedScrollSnap());
-    });
-    
-    // Configure for infinite scrolling
-    api.on('reInit', () => {
-      api.canScrollNext = () => true;
-      api.canScrollPrev = () => true;
-    });
-
-    // Initial setup for infinite scrolling
-    api.canScrollNext = () => true;
-    api.canScrollPrev = () => true;
-    
-    return () => {
-      api.off('select');
-      api.off('reInit');
-    };
-  }, [api]);
 
   return (
     <section
@@ -94,51 +57,84 @@ const CustomerStories = () => {
           </p>
         </div>
 
-        <Carousel 
-          className="w-full max-w-3xl mx-auto" 
-          setApi={setApi}
-          opts={{ 
-            loop: true,
-            align: "center",
-          }}
-        >
-          <CarouselContent>
-            {stories.map((story, index) => (
-              <CarouselItem key={index} className="md:basis-full">
-                <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-lg rounded-xl overflow-hidden h-full">
-                  <CardContent className="p-6 md:p-8">
-                    <div className="w-14 h-14 rounded-full bg-brand-light flex items-center justify-center mb-4">
-                      {story.icon}
-                    </div>
-                    <h3 className="text-xl font-bold mb-3">{story.title}</h3>
-                    {story.description.map((paragraph, i) => (
-                      <p key={i} className="text-gray-600 mb-4 last:mb-0">
-                        {paragraph}
-                      </p>
-                    ))}
-                  </CardContent>
-                </Card>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
+        <div className="w-full max-w-3xl mx-auto">
+          {/* Story Card */}
+          <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-lg rounded-xl overflow-hidden min-h-[350px] transition-all duration-300">
+            <CardContent className="p-6 md:p-8">
+              <div className="w-14 h-14 rounded-full bg-brand-light flex items-center justify-center mb-4">
+                {stories[activeStory].icon}
+              </div>
+              <h3 className="text-xl font-bold mb-3">{stories[activeStory].title}</h3>
+              {stories[activeStory].description.map((paragraph, i) => (
+                <p key={i} className="text-gray-600 mb-4 last:mb-0">
+                  {paragraph}
+                </p>
+              ))}
+            </CardContent>
+          </Card>
 
-          <div className="flex justify-center gap-4 mt-6">
-            <button 
-              onClick={handlePrevious}
-              className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-200 bg-white shadow-sm hover:bg-gray-50"
-              aria-label="Previous slide"
-            >
-              <CarouselPrevious className="h-8 w-8 relative left-0" />
-            </button>
-            <button 
-              onClick={handleNext}
-              className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-200 bg-white shadow-sm hover:bg-gray-50"
-              aria-label="Next slide"
-            >
-              <CarouselNext className="h-8 w-8 relative right-0" />
-            </button>
+          {/* Navigation Buttons */}
+          <div className="flex justify-center mt-8 gap-2">
+            {stories.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveStory(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  activeStory === index 
+                    ? "bg-brand-purple scale-125" 
+                    : "bg-gray-300 hover:bg-gray-400"
+                }`}
+                aria-label={`Go to story ${index + 1}`}
+              />
+            ))}
           </div>
-        </Carousel>
+
+          {/* Prev/Next Buttons */}
+          <div className="flex justify-center mt-6 gap-4">
+            <Button
+              onClick={handlePrev}
+              variant="outline"
+              className="rounded-full w-10 h-10 p-0 flex items-center justify-center"
+              aria-label="Previous story"
+            >
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="24" 
+                height="24" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                className="h-5 w-5"
+              >
+                <path d="m15 18-6-6 6-6" />
+              </svg>
+            </Button>
+            <Button
+              onClick={handleNext}
+              variant="outline"
+              className="rounded-full w-10 h-10 p-0 flex items-center justify-center"
+              aria-label="Next story"
+            >
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="24" 
+                height="24" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                className="h-5 w-5"
+              >
+                <path d="m9 18 6-6-6-6" />
+              </svg>
+            </Button>
+          </div>
+        </div>
       </div>
     </section>
   );
