@@ -45,7 +45,7 @@ const LeadForm = () => {
           <form onSubmit={handleSubmit} className="flex flex-col items-center">
             <Button 
               type="submit" 
-              className="text-base shadow-custom py-6 px-8" 
+              className="w-full max-w-sm text-base font-medium shadow-custom" 
               size="lg" 
               disabled={isSubmitting}
               asChild

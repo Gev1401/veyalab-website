@@ -119,4 +119,14 @@
       display: block;
     }
   }
+  
+  .bg-hero-gradient {
+    background-color: #F6F8FB;
+    background-image: 
+      radial-gradient(at 80% 20%, hsla(231, 79%, 60%, 0.05) 0px, transparent 50%),
+      radial-gradient(at 20% 80%, hsla(260, 27%, 54%, 0.05) 0px, transparent 50%),
+      radial-gradient(at 50% 50%, rgba(255, 255, 255, 0) 0px, rgba(250, 250, 255, 0.8) 100%);
+    background-size: cover;
+    background-position: center;
+  }
 }

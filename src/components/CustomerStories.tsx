@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Rocket, Users, Database } from "lucide-react";
 import {
@@ -8,6 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const CustomerStories = () => {
   const stories = [
@@ -37,17 +39,45 @@ const CustomerStories = () => {
     },
   ];
 
+  const isMobile = useIsMobile();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [api, setApi] = useState<any>(null);
 
+  // Handle next slide with infinite loop
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % stories.length);
+    if (!api) return;
+    api.scrollNext();
   };
 
+  // Handle previous slide with infinite loop
   const handlePrevious = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + stories.length) % stories.length
-    );
+    if (!api) return;
+    api.scrollPrev();
   };
+
+  useEffect(() => {
+    if (!api) return;
+    
+    // Handle infinite carousel logic
+    api.on('select', () => {
+      setCurrentIndex(api.selectedScrollSnap());
+    });
+    
+    // Configure for infinite scrolling
+    api.on('reInit', () => {
+      api.canScrollNext = () => true;
+      api.canScrollPrev = () => true;
+    });
+
+    // Initial setup for infinite scrolling
+    api.canScrollNext = () => true;
+    api.canScrollPrev = () => true;
+    
+    return () => {
+      api.off('select');
+      api.off('reInit');
+    };
+  }, [api]);
 
   return (
     <section
@@ -64,13 +94,17 @@ const CustomerStories = () => {
           </p>
         </div>
 
-        <Carousel className="w-full max-w-3xl mx-auto">
+        <Carousel 
+          className="w-full max-w-3xl mx-auto" 
+          setApi={setApi}
+          opts={{ 
+            loop: true,
+            align: "center",
+          }}
+        >
           <CarouselContent>
             {stories.map((story, index) => (
-              <CarouselItem
-                key={index}
-                className={`md:basis-full ${index === currentIndex ? "block" : "hidden"}`}
-              >
+              <CarouselItem key={index} className="md:basis-full">
                 <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-lg rounded-xl overflow-hidden h-full">
                   <CardContent className="p-6 md:p-8">
                     <div className="w-14 h-14 rounded-full bg-brand-light flex items-center justify-center mb-4">
@@ -88,14 +122,21 @@ const CustomerStories = () => {
             ))}
           </CarouselContent>
 
-          {/* ✅ Управление стрелками без вложенного button */}
           <div className="flex justify-center gap-4 mt-6">
-            <div role="button" onClick={handlePrevious}>
-              <CarouselPrevious />
-            </div>
-            <div role="button" onClick={handleNext}>
-              <CarouselNext />
-            </div>
+            <button 
+              onClick={handlePrevious}
+              className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-200 bg-white shadow-sm hover:bg-gray-50"
+              aria-label="Previous slide"
+            >
+              <CarouselPrevious className="h-8 w-8 relative left-0" />
+            </button>
+            <button 
+              onClick={handleNext}
+              className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-200 bg-white shadow-sm hover:bg-gray-50"
+              aria-label="Next slide"
+            >
+              <CarouselNext className="h-8 w-8 relative right-0" />
+            </button>
           </div>
         </Carousel>
       </div>
