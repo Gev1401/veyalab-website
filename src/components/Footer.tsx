@@ -1,7 +1,5 @@
-
 import React from "react";
 import { ShieldCheck } from "lucide-react";
-
 const Footer = () => {
   return <footer className="w-full py-12 border-t bg-white">
       <div className="container px-4 md:px-6">
@@ -10,9 +8,7 @@ const Footer = () => {
             <h3 className="text-lg font-bold gradient-text">
               Veya<span className="text-brand-blue">Lab</span>
             </h3>
-            <p className="text-gray-500 max-w-xs">
-              Empower your team with enriched CRM data and automated workflows to make right decisions.
-            </p>
+            <p className="text-gray-500 max-w-xs">We build AI agents that clean your inventory data, automate workflows, and help commercial teams act faster and smarter.</p>
           </div>
           
           <div className="space-y-4">
@@ -42,5 +38,4 @@ const Footer = () => {
       </div>
     </footer>;
 };
-
 export default Footer;
