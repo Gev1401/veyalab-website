@@ -13,9 +13,7 @@ const Footer = () => {
           
           <div className="space-y-4">
             <h3 className="text-lg font-bold">GDPR Compliance</h3>
-            <p className="text-gray-500 max-w-xs">
-              All our data enrichment processes are fully GDPR compliant and follow strict data privacy guidelines.
-            </p>
+            <p className="text-gray-500 max-w-xs">Your data stays safe. Our AI agents operate under strict GDPR guidelines and never act outside your defined rules.</p>
             <div className="flex items-center gap-2">
               <ShieldCheck className="h-5 w-5 text-brand-blue" />
               <span className="text-sm text-gray-500">Data Security Certified</span>
