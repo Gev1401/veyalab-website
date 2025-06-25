@@ -35,10 +35,10 @@ const LeadForm = () => {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Ready to boost your <span className="gradient-text">sales?</span>
+            Explore how AI can simplify your <span className="gradient-text">inventory ops</span>
           </h2>
           <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
-            Get up to 100 leads with our data enrichment service
+            Our team will walk you through real use cases, outcomes, and next steps.
           </p>
         </div>
         <div className="mx-auto max-w-md mt-10">
@@ -51,7 +51,7 @@ const LeadForm = () => {
               asChild
             >
               <a href="https://calendly.com/george-veyalab/30min">
-                {isSubmitting ? "Processing..." : "Get 100 enriched leads"}
+                {isSubmitting ? "Processing..." : "Book a walkthrough"}
               </a>
             </Button>
           </form>

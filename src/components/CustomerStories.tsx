@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Rocket, Users, Database } from "lucide-react";
+import { AlertTriangle, Database, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const CustomerStories = () => {
@@ -9,27 +9,27 @@ const CustomerStories = () => {
   
   const stories = [
     {
-      icon: <Rocket className="h-7 w-7 text-brand-purple" />,
-      title: "Boosting Sales Outreach with Automated Personalization",
+      icon: <AlertTriangle className="h-7 w-7 text-brand-purple" />,
+      title: "Streamlining Restock Planning with Automated Alerts",
       description: [
-        "A company that makes pharmaceutical packaging wanted to send more personalized outreach to potential clients. Their sales team spent over 10 hours a week researching leads and filling out CRM fields by hand — but the data was often messy and not very useful.",
-        "We used AI to automate the research and fill in the right packaging needs for each lead. This saved their team a ton of time and increased their meeting booking rate by 30% thanks to better personalization.",
-      ],
-    },
-    {
-      icon: <Users className="h-7 w-7 text-brand-purple" />,
-      title: "Turning a Messy CRM into Qualified Leads",
-      description: [
-        "An event equipment rental company had 17,000 messy contacts in their CRM. It was hard to find returning customers or figure out who to contact next.",
-        "We filled in missing details, organized the data, and used AI to find the leads that matched their ideal customer. In the end, they got 4,000 qualified leads and closed their first deal from the cleaned list.",
+        "A retail chain with 120 stores struggled to keep shelves stocked on time due to slow internal communication and manual reorder tracking. Their commercial team relied on spreadsheets and had no system for proactively flagging low inventory.",
+        "We deployed AI agents to monitor key SKUs, predict restocking needs, and notify responsible teams automatically. As a result, they reduced out-of-stock incidents by 38% and recovered over $120K in missed sales within 3 months.",
       ],
     },
     {
       icon: <Database className="h-7 w-7 text-brand-purple" />,
-      title: "Making a Purchased Lead List Actually Usable",
+      title: "Cleaning Up Disorganized Inventory Records at Scale",
       description: [
-        "One company bought a list of 5,000 leads, but most of it was missing websites, emails, or any useful info. Their sales team couldn't tell who was a good fit — or even how to reach them.",
-        "We cleaned the list, found working websites, filled in missing info with AI, and flagged the leads that matched their ideal customer profile. The result: 2,000 sales-ready leads, and a far more efficient outreach process.",
+        "A supplier of event equipment had over 17,000 items in their system — but most records were incomplete, duplicated, or outdated. The sales team wasted time chasing internal updates instead of talking to clients.",
+        "VeyaLab AI agents cleaned and enriched inventory data automatically, flagged discrepancies, and ensured key fields stayed accurate. This improved forecasting, reduced manual input by 60%, and accelerated time to quote.",
+      ],
+    },
+    {
+      icon: <CheckCircle className="h-7 w-7 text-brand-purple" />,
+      title: "Automating Reorder Compliance to Prevent Revenue Loss",
+      description: [
+        "A regional distributor had trouble enforcing restock commitments from partner stores. Follow-ups were manual, often delayed, and led to stockouts in high-margin categories.",
+        "We implemented AI-driven reorder enforcement: agents sent friendly nudges, escalation emails, and finally compliance reports. The process increased timely reorders by 45% and helped protect an estimated $250K in quarterly revenue.",
       ],
     },
   ];

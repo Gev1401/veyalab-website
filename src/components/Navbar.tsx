@@ -40,7 +40,7 @@ const Navbar = () => {
           </a>
           <Button asChild>
             <a href="https://calendly.com/george-veyalab/30min" className="ml-4 font-medium">
-              Get 100 enriched leads
+              Book a walkthrough
             </a>
           </Button>
         </nav>
@@ -78,7 +78,7 @@ const Navbar = () => {
             <a 
               href="#customer-stories" 
               className="text-lg font-medium text-gray-600 hover:text-brand-blue transition-colors"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => setIsMenuOperation(false)}
             >
               Customer Stories
             </a>
@@ -88,7 +88,7 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               <a href="https://calendly.com/george-veyalab/30min">
-                Get 100 enriched leads
+                Book a walkthrough
               </a>
             </Button>
           </nav>
