@@ -78,7 +78,7 @@ const Navbar = () => {
             <a 
               href="#customer-stories" 
               className="text-lg font-medium text-gray-600 hover:text-brand-blue transition-colors"
-              onClick={() => setIsMenuOperation(false)}
+              onClick={() => setIsMenuOpen(false)}
             >
               Customer Stories
             </a>
