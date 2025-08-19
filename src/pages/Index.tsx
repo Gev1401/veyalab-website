@@ -2,10 +2,11 @@
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import HowItWorks from "@/components/HowItWorks";
-import ProvenResults from "@/components/ProvenResults";
-import CustomerStories from "@/components/CustomerStories";
-import LeadForm from "@/components/LeadForm";
+import ProblemValue from "@/components/ProblemValue";
+import ProductSections from "@/components/ProductSections";
+import HowWeWork from "@/components/HowWeWork";
+import IntegrationsSecurity from "@/components/IntegrationsSecurity";
+import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -14,10 +15,15 @@ const Index = () => {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <HowItWorks />
-        <ProvenResults />
-        <CustomerStories />
-        <LeadForm />
+        <ProblemValue />
+        <div id="products">
+          <ProductSections />
+        </div>
+        <HowWeWork />
+        <div id="integrations">
+          <IntegrationsSecurity />
+        </div>
+        <FinalCTA />
       </main>
       <Footer />
     </div>
