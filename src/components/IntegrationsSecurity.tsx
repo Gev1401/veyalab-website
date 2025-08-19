@@ -10,8 +10,7 @@ const IntegrationsSecurity = () => {
     { name: "Confluence", category: "knowledge" },
     { name: "Notion", category: "knowledge" },
     { name: "Drive", category: "knowledge" },
-    { name: "amoCRM", category: "crm" },
-    { name: "Bitrix", category: "crm" },
+    { name: "Pipedrive", category: "crm" },
     { name: "HubSpot", category: "crm" },
     { name: "Salesforce", category: "crm" }
   ];
@@ -35,7 +34,7 @@ const IntegrationsSecurity = () => {
   ];
 
   return (
-    <section className="w-full py-20 md:py-24 bg-surface">
+    <section id="integrations-security" className="w-full py-20 md:py-24 bg-surface">
       <div className="container px-4 md:px-6 max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Integrations Section */}

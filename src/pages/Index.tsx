@@ -3,7 +3,7 @@ import React from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ProblemValue from "@/components/ProblemValue";
-import ProductSections from "@/components/ProductSections";
+import Solutions from "@/components/Solutions";
 import HowWeWork from "@/components/HowWeWork";
 import IntegrationsSecurity from "@/components/IntegrationsSecurity";
 import FinalCTA from "@/components/FinalCTA";
@@ -17,7 +17,7 @@ const Index = () => {
         <Hero />
         <ProblemValue />
         <div id="products">
-          <ProductSections />
+          <Solutions />
         </div>
         <HowWeWork />
         <div id="integrations">
