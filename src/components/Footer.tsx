@@ -4,42 +4,46 @@ import { ShieldCheck } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="w-full py-6 border-t bg-white">
-      <div className="container px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-4">
+    <footer className="w-full py-6 border-t border-hairline bg-white">
+      <div className="container px-4 md:px-6 max-w-6xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-4">
+          {/* Left: Logo & Tagline */}
           <div className="space-y-2">
             <h3 className="text-base font-bold gradient-text">
-              Veya<span className="text-brand-blue">Lab</span>
+              veyalab
             </h3>
-            <p className="text-gray-500 text-sm leading-tight max-w-xs">
-              We build AI agents that clean your inventory data, automate workflows, and help commercial teams act faster and smarter.
+            <p className="text-text-muted text-sm leading-tight">
+              AI agents for faster workflows, smarter sales, and secure operations.
             </p>
           </div>
           
+          {/* Center: GDPR Compliance */}
           <div className="space-y-2">
-            <h3 className="text-base font-bold">GDPR Compliance</h3>
-            <p className="text-gray-500 text-sm leading-tight max-w-xs">
+            <h3 className="text-base font-bold text-headline">GDPR Compliance</h3>
+            <p className="text-text-muted text-sm leading-tight">
               Your data stays safe. Our AI agents operate under strict GDPR guidelines and never act outside your defined rules.
             </p>
             <div className="flex items-center gap-2">
-              <ShieldCheck className="h-4 w-4 text-brand-blue" />
-              <span className="text-xs text-gray-500">Data Security Certified</span>
+              <ShieldCheck className="h-4 w-4 text-primary" />
+              <span className="text-xs text-text-muted">Data Security Certified</span>
             </div>
           </div>
-        </div>
-        
-        <div className="border-t pt-4 flex flex-col md:flex-row items-center justify-between">
-          <p className="text-gray-500 text-xs">
-            © {new Date().getFullYear()} VeyaLab. All rights reserved.
-          </p>
-          <div className="flex items-center gap-4 mt-2 md:mt-0">
-            <a href="#" className="text-gray-500 text-xs hover:text-brand-blue transition-colors">
+          
+          {/* Right: Legal Links */}
+          <div className="flex flex-col items-start md:items-end space-y-2">
+            <a href="#" className="text-text-muted text-xs hover:text-primary transition-colors">
               Privacy Policy
             </a>
-            <a href="#" className="text-gray-500 text-xs hover:text-brand-blue transition-colors">
+            <a href="#" className="text-text-muted text-xs hover:text-primary transition-colors">
               Terms of Service
             </a>
           </div>
+        </div>
+        
+        <div className="border-t border-hairline pt-4">
+          <p className="text-text-muted text-xs text-center md:text-left">
+            © {new Date().getFullYear()} veyalab. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

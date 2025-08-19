@@ -53,12 +53,11 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				brand: {
-					blue: '#2563EB',
-					purple: '#7C3AED',
-					light: '#E5DEFF',
-					dark: '#1A1F2C',
-				},
+				surface: 'hsl(var(--surface))',
+				hairline: 'hsl(var(--hairline))',
+				headline: 'hsl(var(--headline))',
+				body: 'hsl(var(--body))',
+				'text-muted': 'hsl(var(--text-muted))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',

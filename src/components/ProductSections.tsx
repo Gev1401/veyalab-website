@@ -1,6 +1,5 @@
 import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Database, MessageCircle, Bot } from "lucide-react";
+import { Database, MessageCircle, Bot, Quote } from "lucide-react";
 
 const ProductSections = () => {
   const products = [
@@ -31,48 +30,53 @@ const ProductSections = () => {
   ];
 
   return (
-    <section className="w-full py-12 md:py-24">
-      <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+    <section className="w-full py-20 md:py-24">
+      <div className="container px-4 md:px-6 max-w-6xl">
+        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-headline">
             Product <span className="gradient-text">Solutions</span>
           </h2>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-1 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 gap-8">
           {products.map((product, index) => (
-            <Card key={index} className="bg-white shadow-lg border-0 overflow-hidden">
-              <CardContent className="p-8">
-                <div className="flex items-start gap-6">
-                  <div className="rounded-full bg-primary/10 p-4 flex-shrink-0">
-                    {product.icon}
-                  </div>
-                  <div className="flex-1 space-y-4">
-                    <div>
-                      <h3 className="text-2xl font-bold mb-2">{product.title}</h3>
-                      <h4 className="text-lg text-red-600 font-semibold">{product.subtitle}</h4>
-                    </div>
-                    
-                    <div className="space-y-3">
-                      <div>
-                        <span className="text-sm font-semibold text-red-600 uppercase tracking-wide">Problem:</span>
-                        <p className="text-gray-600 mt-1">{product.problem}</p>
-                      </div>
-                      
-                      <div>
-                        <span className="text-sm font-semibold text-primary uppercase tracking-wide">Solution:</span>
-                        <p className="text-gray-600 mt-1">{product.solution}</p>
-                      </div>
-                      
-                      <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
-                        <span className="text-sm font-semibold text-green-600 uppercase tracking-wide">User Story:</span>
-                        <p className="text-green-700 mt-1">{product.userStory}</p>
-                      </div>
-                    </div>
-                  </div>
+            <div key={index} className="bg-white rounded-2xl border border-hairline p-6 md:p-8 card-hover">
+              {/* Header Row */}
+              <div className="flex items-start gap-6 mb-6">
+                <div className="rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 p-4 flex-shrink-0">
+                  {product.icon}
                 </div>
-              </CardContent>
-            </Card>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-semibold text-headline mb-2">{product.title}</h3>
+                  <p className="text-text-muted text-lg">{product.subtitle}</p>
+                </div>
+              </div>
+              
+              {/* Body Blocks */}
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-muted text-body uppercase tracking-wide">
+                    Problem
+                  </span>
+                  <p className="text-body leading-relaxed flex-1">{product.problem}</p>
+                </div>
+                
+                <div className="flex items-start gap-3">
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-primary text-primary-foreground uppercase tracking-wide">
+                    Solution
+                  </span>
+                  <p className="text-body leading-relaxed flex-1">{product.solution}</p>
+                </div>
+                
+                <div className="bg-surface p-4 rounded-xl border-l-4 border-gradient-to-b from-primary to-secondary relative">
+                  <Quote className="h-4 w-4 text-primary absolute top-4 right-4 opacity-60" />
+                  <span className="inline-flex items-center text-xs font-medium text-primary uppercase tracking-wide mb-2">
+                    User Story
+                  </span>
+                  <p className="text-body leading-relaxed">{product.userStory}</p>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
