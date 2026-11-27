@@ -1,4 +1,5 @@
 import { useI18n } from "@/i18n";
+import { nb } from "@/lib/nobreak";
 
 const WhyUs = () => {
   const { t } = useI18n();
@@ -7,9 +8,9 @@ const WhyUs = () => {
   return (
     <section id="why" className="bg-bg section-padding">
       <div className="container mx-auto">
-        <p className="label-eyebrow mb-4">{t.why.eyebrow}</p>
+        <p className="label-eyebrow mb-4">{nb(t.why.eyebrow)}</p>
         <h2 className="font-display font-black text-ink text-[clamp(1.75rem,4vw,3rem)] leading-tight max-w-3xl">
-          {t.why.title}
+          {nb(t.why.title)}
         </h2>
 
         <div className={`mt-12 grid gap-5 md:grid-cols-2 ${cols}`}>
@@ -17,9 +18,9 @@ const WhyUs = () => {
             <div key={advantage.title} className="rounded-lg bg-bg-alt p-7">
               <div className="w-10 h-1 rounded-pill bg-accent mb-5" />
               <h3 className="font-display font-black text-ink text-lg md:text-xl leading-tight">
-                {advantage.title}
+                {nb(advantage.title)}
               </h3>
-              <p className="mt-3 text-ink-muted leading-snug">{advantage.text}</p>
+              <p className="mt-3 text-ink-muted leading-snug">{nb(advantage.text)}</p>
             </div>
           ))}
         </div>
