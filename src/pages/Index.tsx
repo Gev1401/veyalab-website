@@ -1,11 +1,11 @@
-
-import React from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import ProblemValue from "@/components/ProblemValue";
+import Pains from "@/components/Pains";
 import Solutions from "@/components/Solutions";
+import BI from "@/components/BI";
+import CaseStudy from "@/components/CaseStudy";
 import HowWeWork from "@/components/HowWeWork";
-import IntegrationsSecurity from "@/components/IntegrationsSecurity";
+import WhyUs from "@/components/WhyUs";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 
@@ -15,15 +15,15 @@ const Index = () => {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <ProblemValue />
-        <div id="products">
-          <Solutions />
-        </div>
+        <Pains />
+        <Solutions />
+        <BI />
+        <CaseStudy />
         <HowWeWork />
-        <div id="integrations">
-          <IntegrationsSecurity />
+        <WhyUs />
+        <div id="contact">
+          <FinalCTA />
         </div>
-        <FinalCTA />
       </main>
       <Footer />
     </div>
