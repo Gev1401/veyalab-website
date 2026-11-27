@@ -1,59 +1,34 @@
-import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { useToast } from "@/hooks/use-toast";
-import { CheckCircle } from "lucide-react";
+import { useI18n } from "@/i18n";
+import { site } from "@/lib/site";
 
 const FinalCTA = () => {
-  const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "Request submitted!",
-        description: "We'll be in touch with you shortly.",
-        action: (
-          <div className="h-8 w-8 bg-primary/20 rounded-full flex items-center justify-center">
-            <CheckCircle className="h-5 w-5 text-primary" />
-          </div>
-        ),
-      });
-      setIsSubmitting(false);
-      
-      // Redirect to Calendly
-      window.location.href = "https://calendly.com/george-veyalab/30min";
-    }, 1500);
-  };
+  const { t } = useI18n();
 
   return (
-    <section id="contact" className="w-full py-12 md:py-24 bg-gradient-to-br from-primary/5 to-secondary/5">
-      <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Want to boost efficiency and profit <span className="gradient-text">with AI?</span>
+    <section className="bg-black text-white section-padding">
+      <div className="container mx-auto">
+        <div className="max-w-3xl">
+          <h2 className="font-display font-black text-white text-[clamp(2rem,5vw,3.5rem)] leading-[1.05] tracking-tight">
+            {t.cta.title.text} <span className="accent-word">{t.cta.title.accent}</span>
           </h2>
-          <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
-            We'll implement solutions tailored to your business, cut costs, and accelerate sales growth.
-          </p>
-        </div>
-        <div className="mx-auto max-w-md mt-10">
-          <form onSubmit={handleSubmit} className="flex flex-col items-center">
-            <Button 
-              type="submit" 
-              className="w-full max-w-sm text-base font-medium shadow-custom" 
-              size="lg" 
-              disabled={isSubmitting}
-              asChild
+          <p className="mt-6 text-lg md:text-xl text-white/70 max-w-2xl leading-snug">{t.cta.text}</p>
+
+          <div className="mt-9 flex flex-col sm:flex-row gap-3">
+            <a
+              href={site.telegram.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-pill bg-accent text-on-accent font-semibold text-base px-7 py-4 hover:brightness-110 transition-all"
             >
-              <a href="https://calendly.com/george-veyalab/30min">
-                {isSubmitting ? "Processing..." : "Get a free consultation"}
-              </a>
-            </Button>
-          </form>
+              {t.cta.telegram}
+            </a>
+            <a
+              href={`mailto:${site.email}`}
+              className="inline-flex items-center justify-center rounded-pill border border-white/25 text-white font-semibold text-base px-7 py-4 hover:border-accent hover:text-accent transition-colors"
+            >
+              {t.cta.email}
+            </a>
+          </div>
         </div>
       </div>
     </section>

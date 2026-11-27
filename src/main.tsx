@@ -1,15 +1,12 @@
-import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
-import { BrowserRouter } from "react-router-dom";
+import { createRoot, hydrateRoot } from "react-dom/client";
+import App from "./App";
+import { pages } from "./lib/routes";
 import "./index.css";
 
-const baseName =
-  process.env.NODE_ENV === "development" || window.location.hostname === "veyalab.com"
-    ? "/" 
-    : "/veyalab-website";
+// Каждая страница пререндерена в свой HTML; id страницы лежит в <html data-page>.
+const id = document.documentElement.dataset.page;
+const page = pages.find((p) => p.id === id) ?? pages[0];
+const root = document.getElementById("root");
 
-createRoot(document.getElementById("root")!).render(
-  <BrowserRouter basename={baseName}>
-    <App />
-  </BrowserRouter>
-);
+if (root?.hasChildNodes()) hydrateRoot(root, <App page={page} />);
+else if (root) createRoot(root).render(<App page={page} />); // dev-сервер без пререндера

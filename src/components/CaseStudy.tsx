@@ -1,51 +1,50 @@
-
-import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Clock, Target, BarChart2 } from "lucide-react";
+import { useI18n } from "@/i18n";
 
 const CaseStudy = () => {
+  const { t } = useI18n();
+
   return (
-    <section className="w-full py-12 md:py-24 bg-white">
-      <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Why Work with <span className="gradient-text">Us</span>
-          </h2>
-          <p className="max-w-[600px] text-gray-500 md:text-xl">
-            We understand the challenges of inventory management and deliver results that matter.
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <Card className="text-center p-6">
-            <CardContent className="pt-6">
-              <Clock className="h-12 w-12 text-brand-blue mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Fast Implementation</h3>
-              <p className="text-gray-500">
-                Get up and running in days, not months. Our AI agents integrate seamlessly with your existing systems.
-              </p>
-            </CardContent>
-          </Card>
-          
-          <Card className="text-center p-6">
-            <CardContent className="pt-6">
-              <Target className="h-12 w-12 text-brand-purple mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Proven Results</h3>
-              <p className="text-gray-500">
-                Our clients see immediate improvements in inventory accuracy and operational efficiency.
-              </p>
-            </CardContent>
-          </Card>
-          
-          <Card className="text-center p-6">
-            <CardContent className="pt-6">
-              <BarChart2 className="h-12 w-12 text-brand-blue mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Measurable Impact</h3>
-              <p className="text-gray-500">
-                Track performance with clear metrics and see the ROI of automated inventory management.
-              </p>
-            </CardContent>
-          </Card>
+    <section id="cases" className="bg-bg section-padding">
+      <div className="container mx-auto">
+        <p className="label-eyebrow mb-4">{t.cases.eyebrow}</p>
+        <h2 className="font-display font-black text-ink text-[clamp(1.75rem,4vw,3rem)] leading-tight max-w-3xl">
+          {t.cases.title}
+        </h2>
+
+        <div className="mt-12 space-y-5">
+          {t.cases.items.map((c) => (
+            <div key={c.title} className="rounded-lg bg-bg-alt p-7 md:p-10">
+              <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:gap-16 lg:items-start">
+                {/* Левая часть */}
+                <div>
+                  <span className="label-eyebrow block mb-3">{c.industry}</span>
+                  <h3 className="font-display font-black text-ink text-2xl md:text-3xl leading-tight">
+                    {c.title}
+                  </h3>
+                  <ul className="mt-6 space-y-3">
+                    {c.points.map((p) => (
+                      <li key={p} className="flex gap-3 text-ink-muted leading-snug">
+                        <span className="mt-2 h-1.5 w-1.5 rounded-pill bg-accent shrink-0" />
+                        <span>{p}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Метрики к правому краю, одна под другой */}
+                <div className="space-y-6 lg:text-right lg:min-w-[260px]">
+                  {c.metrics.map((m) => (
+                    <div key={m.label}>
+                      <div className="font-display font-black text-accent text-[clamp(3.5rem,8vw,6rem)] leading-none tracking-tight">
+                        {m.value}
+                      </div>
+                      <div className="mt-2 text-ink text-base md:text-lg">{m.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

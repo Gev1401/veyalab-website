@@ -1,31 +1,42 @@
-import React from "react";
-import { Button } from "@/components/ui/button";
+import { useI18n } from "@/i18n";
+import { site } from "@/lib/site";
 
 const Hero = () => {
+  const { t } = useI18n();
+  const h = t.hero;
+
   return (
-    <section className="w-full min-h-screen flex items-center py-12 md:py-24 lg:py-32 bg-hero-gradient">
-      <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
-          <div className="space-y-2">
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
-              Boost efficiency and stay ahead of competitors <br />
-              <span className="gradient-text">with AI</span>
-            </h1>
-            <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400 mt-4">
-              We implement AI solutions that speed up your team, cut costs, and help you close more deals.
-            </p>
-          </div>
-          <div className="w-full max-w-sm space-y-2">
-            <Button 
-              size="lg" 
-              className="w-full text-base font-medium shadow-custom" 
-              asChild
+    <section id="top" className="relative overflow-hidden bg-bg">
+      <div className="container mx-auto pt-36 pb-16 md:pt-44 md:pb-20">
+        <div className="max-w-4xl">
+          <p className="label-eyebrow mb-5">{h.eyebrow}</p>
+
+          <h1 className="font-display font-black text-ink leading-[1.04] tracking-tight text-[clamp(2.5rem,7vw,5.25rem)]">
+            {h.title.text} <span className="accent-word">{h.title.accent}</span>
+          </h1>
+
+          <p className="mt-7 text-lg md:text-2xl font-medium text-ink-muted max-w-2xl leading-snug">
+            {h.subtitle}
+          </p>
+
+          <div className="mt-9 flex flex-col sm:flex-row gap-3">
+            <a
+              href={site.telegram.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-pill bg-accent text-on-accent font-semibold text-base px-7 py-4 hover:bg-violet-deep transition-colors"
             >
-              <a href="https://calendly.com/george-veyalab/30min" className="flex items-center justify-center gap-2">
-                Get a free consultation
-              </a>
-            </Button>
+              {h.primary}
+            </a>
+            <a
+              href="#cases"
+              className="inline-flex items-center justify-center rounded-pill border border-ink/15 text-ink font-semibold text-base px-7 py-4 hover:border-accent hover:text-accent transition-colors"
+            >
+              {h.secondary}
+            </a>
           </div>
+
+          {h.note && <p className="mt-7 text-sm text-ink-muted">{h.note}</p>}
         </div>
       </div>
     </section>

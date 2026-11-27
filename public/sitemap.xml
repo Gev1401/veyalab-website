@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://veyalab.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://veyalab.com/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://veyalab.com/ru/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://veyalab.com/" />
+  </url>
+  <url>
+    <loc>https://veyalab.com/ru/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://veyalab.com/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://veyalab.com/ru/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://veyalab.com/" />
+  </url>
+  <url>
+    <loc>https://veyalab.com/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://veyalab.com/privacy" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://veyalab.com/ru/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://veyalab.com/privacy" />
+  </url>
+  <url>
+    <loc>https://veyalab.com/ru/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://veyalab.com/privacy" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://veyalab.com/ru/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://veyalab.com/privacy" />
+  </url>
+</urlset>

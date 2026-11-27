@@ -1,93 +1,85 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Локальные шрифты дизайн-системы Veyalab, без сторонних CDN */
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/montserrat-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/montserrat-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/montserrat-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/montserrat-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Unbounded";
+  src: url("/fonts/unbounded-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Unbounded";
+  src: url("/fonts/unbounded-900.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222 84% 5%;
+    /* Токены цвета VeyaLab (светлая тема) */
+    --bg: 0 0% 100%;
+    --bg-alt: 252 33% 96%;
+    --ink: 240 9% 4%;
+    --ink-muted: 220 9% 39%;
+    --line: 255 15% 90%;
+    --slate: 215 13% 20%;
+    --violet-deep: 258 61% 29%;
+    --accent: 258 89% 64%;
+    --accent-tint: 255 90% 95%;
+    --on-accent: 0 0% 100%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222 84% 5%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 84% 5%;
-
-    --primary: 221 83% 53%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 262 83% 58%;
-    --secondary-foreground: 0 0% 100%;
-
-    --muted: 215 25% 97%;
-    --muted-foreground: 215 10% 42%;
-
-    --accent: 215 25% 97%;
-    --accent-foreground: 222 84% 5%;
-    
-    --surface: 215 25% 97%;
-    --hairline: 214 32% 91%;
-    --headline: 222 84% 5%;
-    --body: 223 84% 10%;
-    --text-muted: 215 10% 42%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 231 79% 60%;
-
-    --radius: 0.75rem;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 231 79% 60%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 260 27% 54%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 260 75% 94%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* shadcn-совместимость (чтобы UI-компоненты наследовали палитру) */
+    --background: var(--bg);
+    --foreground: var(--ink);
+    --card: var(--bg);
+    --card-foreground: var(--ink);
+    --popover: var(--bg);
+    --popover-foreground: var(--ink);
+    --primary: var(--accent);
+    --primary-foreground: var(--on-accent);
+    --secondary: var(--bg-alt);
+    --secondary-foreground: var(--ink);
+    --muted: var(--bg-alt);
+    --muted-foreground: var(--ink-muted);
+    --accent-foreground: var(--on-accent);
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: var(--line);
+    --input: var(--line);
+    --ring: var(--accent);
+    --radius: 24px;
   }
 }
 
@@ -97,60 +89,46 @@
   }
 
   body {
-    @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    background-color: hsl(var(--bg));
+    color: hsl(var(--ink));
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
-  
-  .gradient-text {
-    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Unbounded", "Montserrat", "Arial Black", sans-serif;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    color: hsl(var(--ink));
   }
-  
-  .gradient-underline {
-    position: relative;
+}
+
+@layer components {
+  /* Верхняя метка-ярлык над заголовком */
+  .label-eyebrow {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 0.8125rem;
+    line-height: 1.3;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: hsl(var(--accent));
   }
-  
-  .gradient-underline::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--secondary)));
-    opacity: 0.6;
+
+  /* Выделенное слово в заголовке акцентным фиолетовым */
+  .accent-word {
+    color: hsl(var(--accent));
   }
-  
-  .shadow-custom {
-    box-shadow: 0 4px 12px -4px hsl(var(--primary) / 0.1);
+
+  /* Подсветка слова бледной подложкой */
+  .accent-pill {
+    background-color: hsl(var(--accent-tint));
+    color: hsl(var(--violet-deep));
+    border-radius: 999px;
+    padding: 0.1em 0.5em;
   }
-  
-  .card-hover {
-    transition: all 0.2s ease;
-  }
-  
-  .card-hover:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px -8px hsl(var(--primary) / 0.15);
-  }
-  
-  .process-card::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: -2rem;
-    width: 2rem;
-    height: 2px;
-    background: theme('colors.brand.light');
-    display: none;
-  }
-  
-  @media (min-width: 768px) {
-    .process-card:not(:last-child)::before {
-      display: block;
-    }
-  }
-  
-  .bg-hero-gradient {
-    background: linear-gradient(135deg, hsl(var(--primary) / 0.05) 0%, hsl(var(--secondary) / 0.05) 100%);
+
+  .section-padding {
+    @apply py-20 md:py-28;
   }
 }
