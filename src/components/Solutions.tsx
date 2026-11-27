@@ -1,5 +1,6 @@
 import { useI18n } from "@/i18n";
 import NumberedCard from "@/components/NumberedCard";
+import { nb } from "@/lib/nobreak";
 
 const Solutions = () => {
   const { t } = useI18n();
@@ -7,9 +8,9 @@ const Solutions = () => {
   return (
     <section id="services" className="bg-bg section-padding">
       <div className="container mx-auto">
-        <p className="label-eyebrow mb-4">{t.solutions.eyebrow}</p>
+        <p className="label-eyebrow mb-4">{nb(t.solutions.eyebrow)}</p>
         <h2 className="font-display font-black text-ink text-[clamp(1.75rem,4vw,3rem)] leading-tight max-w-3xl">
-          {t.solutions.title}
+          {nb(t.solutions.title)}
         </h2>
 
         <div className="mt-12 grid gap-5 md:grid-cols-2">

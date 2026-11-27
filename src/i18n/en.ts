@@ -176,7 +176,7 @@ export const en: Dict = {
     email: "Send an email",
   },
   footer: {
-    tagline: "Veyalab. AI, software and BI for business.",
+    tagline: "AI, software and BI for business.",
     contacts: "Contacts",
     telegram: "Telegram",
     email: "Email",

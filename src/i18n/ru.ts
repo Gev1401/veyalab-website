@@ -181,7 +181,7 @@ export const ru: Dict = {
     email: "Написать на почту",
   },
   footer: {
-    tagline: "Veyalab. ИИ, софт и BI для бизнеса.",
+    tagline: "ИИ, софт и BI для бизнеса.",
     contacts: "Контакты",
     telegram: "Telegram",
     email: "Почта",

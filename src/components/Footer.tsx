@@ -1,6 +1,7 @@
 import { useI18n } from "@/i18n";
 import { pathFor } from "@/lib/routes";
 import { site } from "@/lib/site";
+import { nb } from "@/lib/nobreak";
 
 const Footer = () => {
   const { t, lang } = useI18n();
@@ -13,26 +14,26 @@ const Footer = () => {
             <span className="font-display text-2xl font-black text-ink leading-none block -mt-1">
               Veyalab<span className="text-accent">.</span>
             </span>
-            <p className="text-sm text-ink-muted mt-3 max-w-xs">{t.footer.tagline}</p>
+            <p className="text-sm text-ink-muted mt-3 max-w-xs">{nb(t.footer.tagline)}</p>
           </div>
 
           <div className="text-sm space-y-2">
-            <h4 className="label-eyebrow mb-3">{t.footer.contacts}</h4>
+            <h4 className="label-eyebrow mb-3">{nb(t.footer.contacts)}</h4>
             <p className="text-ink-muted">
-              {t.footer.telegram}{" "}
+              {nb(t.footer.telegram)}{" "}
               <a href={site.telegram.url} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
                 {site.telegram.handle}
               </a>
             </p>
             <p className="text-ink-muted">
-              {t.footer.email}{" "}
+              {nb(t.footer.email)}{" "}
               <a href={`mailto:${site.email}`} className="text-accent hover:underline">
                 {site.email}
               </a>
             </p>
             <p>
               <a href={pathFor("privacy", lang)} className="text-accent hover:underline">
-                {t.footer.privacy}
+                {nb(t.footer.privacy)}
               </a>
             </p>
           </div>
